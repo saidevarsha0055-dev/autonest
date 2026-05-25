@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autonest - Expert Used Car Inspection</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="antialiased overflow-x-hidden selection:bg-primary selection:text-black">
+
+    <!-- Header with Top Bar -->
+    <header id="header" class="fixed w-full z-50 transition-all duration-300">
+        <!-- Top Info Bar (Hidden on mobile) -->
+        <div class="bg-black border-b border-gray-800 hidden md:block">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2 flex justify-between items-center text-xs text-gray-400 font-medium tracking-wide">
+                <div class="flex items-center gap-6">
+                    <span class="flex items-center gap-2 hover:text-white transition cursor-pointer"><i data-lucide="phone" class="w-3.5 h-3.5 text-primary"></i> +91 81793 78163</span>
+                    <span class="flex items-center gap-2 hover:text-white transition cursor-pointer"><i data-lucide="mail" class="w-3.5 h-3.5 text-primary"></i> autonest007@gmail.com</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <i data-lucide="clock" class="w-3.5 h-3.5 text-primary"></i> Mon - Sun: 9:00 AM - 7:00 PM
+                </div>
+            </div>
+        </div>
+        
+        <!-- Main Navbar -->
+        <nav id="navbar" class="py-4 glass-dark transition-all duration-300">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between items-center">
+                    <div class="flex items-center">
+                        <a href="#" class="text-2xl font-bold tracking-tighter text-white flex items-center gap-2 relative z-50">
+                            <i data-lucide="shield-check" class="text-primary w-8 h-8"></i>
+                            Autonest
+                        </a>
+                    </div>
+                    <div class="hidden md:flex space-x-8 items-center">
+                        <a href="#services" class="text-gray-300 hover:text-white transition font-medium">Services</a>
+                        <a href="#how-it-works" class="text-gray-300 hover:text-white transition font-medium">How it Works</a>
+                        <a href="#contact" class="text-gray-300 hover:text-white transition font-medium">Contact</a>
+                        <a href="#booking" class="bg-primary text-black px-6 py-2.5 rounded-full font-bold hover:bg-yellow-500 transition shadow-[0_0_15px_rgba(250,204,21,0.3)] hover:shadow-[0_0_25px_rgba(250,204,21,0.5)]">Book Now</a>
+                    </div>
+                    <div class="md:hidden flex items-center relative z-50">
+                        <button id="mobile-menu-btn" class="text-gray-300 hover:text-white focus:outline-none p-2 rounded-lg bg-white/5 border border-gray-700">
+                            <i data-lucide="menu" class="w-6 h-6"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden absolute w-full left-0 bg-black/95 backdrop-blur-xl border-b border-gray-800 shadow-2xl mt-4 z-40 transform origin-top transition-all duration-300">
+                <div class="px-4 pt-4 pb-8 space-y-2">
+                    <a href="#services" class="block px-4 py-3.5 text-base font-medium text-gray-200 hover:text-white hover:bg-white/10 rounded-xl transition">Services</a>
+                    <a href="#how-it-works" class="block px-4 py-3.5 text-base font-medium text-gray-200 hover:text-white hover:bg-white/10 rounded-xl transition">How it Works</a>
+                    <a href="#contact" class="block px-4 py-3.5 text-base font-medium text-gray-200 hover:text-white hover:bg-white/10 rounded-xl transition">Contact</a>
+                    <a href="#booking" class="block px-4 py-4 text-black font-bold text-base mt-6 text-center rounded-xl bg-primary shadow-lg shadow-primary/20">Book Inspection Now</a>
+                    
+                    <div class="mt-8 pt-6 border-t border-gray-800/50 flex flex-col gap-4 px-4">
+                        <a href="tel:+918179378163" class="flex items-center gap-3 text-sm text-gray-400 hover:text-white"><i data-lucide="phone" class="w-4 h-4 text-primary"></i> +91 81793 78163</a>
+                        <a href="mailto:autonest007@gmail.com" class="flex items-center gap-3 text-sm text-gray-400 hover:text-white"><i data-lucide="mail" class="w-4 h-4 text-primary"></i> autonest007@gmail.com</a>
+                        <span class="flex items-center gap-3 text-sm text-gray-400"><i data-lucide="clock" class="w-4 h-4 text-primary"></i> 9 AM - 7 PM Daily</span>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative pt-28 pb-16 lg:pt-40 lg:pb-24 overflow-hidden min-h-[90vh] flex items-center">
+        <!-- Background Image (faded, brightens on scroll) -->
+        <div class="absolute inset-0 z-0">
+            <img id="heroBgImg" src="./hero.png" alt="Mechanic inspecting car" class="w-full h-full object-cover transition-opacity duration-300" style="opacity: 0.35;">
+            <div class="absolute inset-0 bg-gradient-to-r from-black/90 via-black/50 to-transparent"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/40"></div>
+        </div>
+
+        <!-- Background decoration -->
+        <div class="absolute top-1/2 left-1/4 -translate-y-1/2 w-[600px] h-[600px] bg-primary opacity-[0.04] blur-[120px] rounded-full pointer-events-none"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full reveal">
+            <div class="max-w-3xl">
+                
+                <!-- Content -->
+                <div class="text-left">
+                    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass mb-6 text-xs md:text-sm font-medium text-gray-300 border border-gray-700">
+                        <span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+                        Trusted Car Inspection Experts
+                    </div>
+                    <h1 class="text-4xl md:text-5xl lg:text-7xl font-extrabold tracking-tight mb-4 md:mb-6 leading-tight">
+                        Don't Get Scammed <br /> Buying a <span class="text-gradient-primary">Used Car</span>
+                    </h1>
+                    <p class="mt-4 text-base md:text-lg lg:text-xl text-gray-400 mb-8 md:mb-10 font-light leading-relaxed max-w-2xl">
+                        Get your dream car fully inspected by an expert mechanic before you make the payment. Honest reporting, zero hidden issues.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 mb-12 md:mb-16">
+                        <a href="#booking" class="bg-primary text-black px-6 py-4 md:px-8 md:py-4 rounded-full font-bold text-base md:text-lg hover:bg-yellow-500 transition shadow-[0_0_20px_rgba(250,204,21,0.2)] hover:shadow-[0_0_30px_rgba(250,204,21,0.4)] flex items-center justify-center gap-2">
+                            Book Inspection <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                        </a>
+                        <a href="https://wa.me/918179378163" target="_blank" class="glass text-white px-6 py-4 md:px-8 md:py-4 rounded-full font-semibold text-base md:text-lg hover:bg-white/10 transition flex items-center justify-center gap-2 border border-gray-700">
+                            <i data-lucide="message-square" class="w-5 h-5 text-green-500"></i> WhatsApp Chat
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Floating Badges Row -->
+                <div class="flex flex-wrap gap-4">
+                    <div class="glass-dark p-3 md:p-4 rounded-2xl border border-gray-700 flex items-center gap-3 md:gap-4">
+                        <div class="w-10 h-10 md:w-12 md:h-12 rounded-full bg-green-500/20 flex flex-shrink-0 items-center justify-center text-green-500 border border-green-500/30">
+                            <i data-lucide="shield-check" class="w-5 h-5 md:w-6 md:h-6"></i>
+                        </div>
+                        <div>
+                            <p class="text-[10px] md:text-xs text-gray-400 font-semibold uppercase tracking-wider">Report Status</p>
+                            <p class="text-sm md:text-lg font-bold text-white">100% Verified</p>
+                        </div>
+                    </div>
+                    <div class="glass-dark p-3 md:p-4 rounded-2xl border border-gray-700 flex items-center gap-3 md:gap-4">
+                        <div class="w-10 h-10 md:w-12 md:h-12 rounded-full bg-primary/20 flex flex-shrink-0 items-center justify-center text-primary border border-primary/30">
+                            <i data-lucide="search" class="w-5 h-5 md:w-6 md:h-6"></i>
+                        </div>
+                        <div>
+                            <p class="text-[10px] md:text-xs text-gray-400 font-semibold uppercase tracking-wider">Points Checked</p>
+                            <p class="text-sm md:text-lg font-bold text-white">150+ Areas</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Stats -->
+            <div class="mt-16 lg:mt-24 grid grid-cols-2 md:grid-cols-4 gap-8 border-t border-gray-800 pt-8 lg:pt-10">
+                <div class="text-center lg:text-left">
+                    <div class="text-3xl lg:text-4xl font-bold text-white">5,000+</div>
+                    <div class="text-gray-500 text-sm mt-1 uppercase tracking-wider font-semibold">Cars Inspected</div>
+                </div>
+                <div class="text-center lg:text-left">
+                    <div class="text-3xl lg:text-4xl font-bold text-white">₹50Cr+</div>
+                    <div class="text-gray-500 text-sm mt-1 uppercase tracking-wider font-semibold">Saved for Buyers</div>
+                </div>
+                <div class="text-center lg:text-left">
+                    <div class="text-3xl lg:text-4xl font-bold text-white">150+</div>
+                    <div class="text-gray-500 text-sm mt-1 uppercase tracking-wider font-semibold">Points Checked</div>
+                </div>
+                <div class="text-center lg:text-left">
+                    <div class="text-3xl lg:text-4xl font-bold text-white">4.9/5</div>
+                    <div class="text-gray-500 text-sm mt-1 uppercase tracking-wider font-semibold">Customer Rating</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section class="py-24 bg-black relative" id="problems">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-gradient">Why You Need Us</h2>
+                <p class="text-gray-400 max-w-2xl mx-auto">Buying a used car is blind faith without a professional check.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Card 1 -->
+                <div class="glass p-8 rounded-2xl reveal hover:-translate-y-2 transition duration-300">
+                    <div class="w-14 h-14 bg-red-500/10 rounded-xl flex items-center justify-center mb-6">
+                        <i data-lucide="cog" class="w-7 h-7 text-red-500"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Hidden Engine Issues</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">Sellers often conceal severe engine damage with temporary quick fixes that break down days later.</p>
+                </div>
+                <!-- Card 2 -->
+                <div class="glass p-8 rounded-2xl reveal hover:-translate-y-2 transition duration-300" style="transition-delay: 100ms;">
+                    <div class="w-14 h-14 bg-orange-500/10 rounded-xl flex items-center justify-center mb-6">
+                        <i data-lucide="car-front" class="w-7 h-7 text-orange-500"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Accident Cars</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">Major accidental cars are repainted and sold as "clean condition" compromising your safety.</p>
+                </div>
+                <!-- Card 3 -->
+                <div class="glass p-8 rounded-2xl reveal hover:-translate-y-2 transition duration-300" style="transition-delay: 200ms;">
+                    <div class="w-14 h-14 bg-yellow-500/10 rounded-xl flex items-center justify-center mb-6">
+                        <i data-lucide="indian-rupee" class="w-7 h-7 text-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Overpriced Deals</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">Without knowing the true mechanical value, you end up paying significantly more than the car is worth.</p>
+                </div>
+                <!-- Card 4 -->
+                <div class="glass p-8 rounded-2xl reveal hover:-translate-y-2 transition duration-300" style="transition-delay: 300ms;">
+                    <div class="w-14 h-14 bg-blue-500/10 rounded-xl flex items-center justify-center mb-6">
+                        <i data-lucide="wrench" class="w-7 h-7 text-blue-500"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Lack of Knowledge</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">Unless you're a mechanic, spotting manipulated odometers or worn-out clutches is nearly impossible.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="py-24 border-t border-gray-900 bg-[#0a0a0a]" id="how-it-works">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-20 reveal">
+                <h2 class="text-3xl md:text-5xl font-bold mb-6 text-gradient">How Autonest Works</h2>
+                <p class="text-gray-400 max-w-2xl mx-auto text-lg">Four simple steps to absolute peace of mind.</p>
+            </div>
+
+            <div class="grid md:grid-cols-4 gap-12 relative">
+                <!-- Connecting Line (Desktop) -->
+                <div class="hidden md:block absolute top-[40px] left-[12%] right-[12%] h-[2px] bg-gray-800 -z-0"></div>
+
+                <!-- Step 1 -->
+                <div class="relative z-10 text-center reveal">
+                    <div class="w-20 h-20 mx-auto glass-dark border border-gray-700 rounded-full flex items-center justify-center mb-6 shadow-[0_0_15px_rgba(250,204,21,0.15)] bg-black">
+                        <i data-lucide="calendar" class="w-8 h-8 text-primary"></i>
+                    </div>
+                    <div class="bg-primary text-black text-xs font-bold w-6 h-6 rounded-full flex items-center justify-center mx-auto -mt-10 mb-6 relative z-20">1</div>
+                    <h3 class="text-xl font-semibold mb-3 text-white">Book Inspection</h3>
+                    <p class="text-gray-500 text-sm">Schedule a time that works for you and the seller. We'll handle the rest.</p>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="relative z-10 text-center reveal" style="transition-delay: 100ms;">
+                    <div class="w-20 h-20 mx-auto glass-dark border border-gray-700 rounded-full flex items-center justify-center mb-6 bg-black">
+                        <i data-lucide="search" class="w-8 h-8 text-primary"></i>
+                    </div>
+                    <div class="bg-primary text-black text-xs font-bold w-6 h-6 rounded-full flex items-center justify-center mx-auto -mt-10 mb-6 relative z-20">2</div>
+                    <h3 class="text-xl font-semibold mb-3 text-white">We Inspect Car</h3>
+                    <p class="text-gray-500 text-sm">Our expert mechanic visits the location to perform a comprehensive X-ray check.</p>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="relative z-10 text-center reveal" style="transition-delay: 200ms;">
+                    <div class="w-20 h-20 mx-auto glass-dark border border-gray-700 rounded-full flex items-center justify-center mb-6 bg-black">
+                        <i data-lucide="file-text" class="w-8 h-8 text-primary"></i>
+                    </div>
+                    <div class="bg-primary text-black text-xs font-bold w-6 h-6 rounded-full flex items-center justify-center mx-auto -mt-10 mb-6 relative z-20">3</div>
+                    <h3 class="text-xl font-semibold mb-3 text-white">Detailed Report</h3>
+                    <p class="text-gray-500 text-sm">Receive an instant digital report highlighting every issue and a valuation estimate.</p>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="relative z-10 text-center reveal" style="transition-delay: 300ms;">
+                    <div class="w-20 h-20 mx-auto glass-dark border border-gray-700 rounded-full flex items-center justify-center mb-6 bg-black">
+                        <i data-lucide="check-circle" class="w-8 h-8 text-primary"></i>
+                    </div>
+                    <div class="bg-primary text-black text-xs font-bold w-6 h-6 rounded-full flex items-center justify-center mx-auto -mt-10 mb-6 relative z-20">4</div>
+                    <h3 class="text-xl font-semibold mb-3 text-white">Smart Decision</h3>
+                    <p class="text-gray-500 text-sm">Negotiate a better price or walk away from a lemon with complete confidence.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="py-24 border-t border-gray-900 bg-black relative" id="services">
+        <!-- Glow effect -->
+        <div class="absolute top-0 right-1/4 w-[500px] h-[500px] bg-primary opacity-[0.02] blur-[120px] rounded-full pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-3xl md:text-5xl font-bold mb-4 text-gradient">Pricing Plans</h2>
+                <p class="text-gray-400 max-w-2xl mx-auto text-lg">Choose the depth of inspection you need.</p>
+            </div>
+
+            <div class="grid lg:grid-cols-3 gap-8 max-w-6xl mx-auto items-center">
+                <!-- Basic Card -->
+                <div class="glass p-8 rounded-3xl border border-gray-800 reveal pricing-card">
+                    <h3 class="text-2xl font-bold mb-2">Basic</h3>
+                    <p class="text-gray-400 text-sm mb-6">Essential visual inspection.</p>
+                    <div class="text-4xl font-extrabold mb-8">₹999</div>
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-center gap-3 text-gray-300">
+                            <i data-lucide="check" class="w-5 h-5 text-primary shrink-0"></i>
+                            Exterior & Interior Visual Check
+                        </li>
+                        <li class="flex items-center gap-3 text-gray-300">
+                            <i data-lucide="check" class="w-5 h-5 text-primary shrink-0"></i>
+                            Document Verification
+                        </li>
+                        <li class="flex items-center gap-3 text-gray-300">
+                            <i data-lucide="check" class="w-5 h-5 text-primary shrink-0"></i>
+                            Basic Report
+                        </li>
+                        <li class="flex items-center gap-3 text-gray-600">
+                            <i data-lucide="x" class="w-5 h-5 shrink-0"></i>
+                            Test Drive
+                        </li>
+                        <li class="flex items-center gap-3 text-gray-600">
+                            <i data-lucide="x" class="w-5 h-5 shrink-0"></i>
+                            OBD Diagnostics
+                        </li>
+                    </ul>
+                    <a href="#booking" class="block w-full py-4 text-center rounded-xl bg-gray-800 hover:bg-gray-700 text-white font-semibold transition">Select Basic</a>
+                </div>
+
+                <!-- Standard Card (Highlighted) -->
+                <div class="glass-dark p-8 rounded-3xl border border-primary relative transform scale-100 lg:scale-105 shadow-[0_0_30px_rgba(250,204,21,0.1)] reveal z-10 pricing-card" style="transition-delay: 100ms;">
+                    <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-primary text-black px-4 py-1 rounded-full text-xs font-bold uppercase tracking-wider">Most Popular</div>
+                    <h3 class="text-2xl font-bold mb-2 text-white">Standard</h3>
+                    <p class="text-gray-400 text-sm mb-6">Complete peace of mind.</p>
+                    <div class="text-4xl font-extrabold mb-8 text-primary">₹1,999</div>
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-center gap-3 text-gray-200">
+                            <i data-lucide="check" class="w-5 h-5 text-primary shrink-0"></i>
+                            Everything in Basic
+                        </li>
+                        <li class="flex items-center gap-3 text-gray-200">
+                            <i data-lucide="check" class="w-5 h-5 text-primary shrink-0"></i>
+                            Comprehensive Test Drive
+                        </li>
+                        <li class="flex items-center gap-3 text-gray-200">
+                            <i data-lucide="check" class="w-5 h-5 text-primary shrink-0"></i>
+                            Engine Health Analysis
+                        </li>
+                        <li class="flex items-center gap-3 text-gray-200">
+                            <i data-lucide="check" class="w-5 h-5 text-primary shrink-0"></i>
+                            Underbody Inspection
+                        </li>
+                        <li class="flex items-center gap-3 text-gray-200">
+                            <i data-lucide="check" class="w-5 h-5 text-primary shrink-0"></i>
+                            Detailed Digital Report
+                        </li>
+                    </ul>
+                    <a href="#booking" class="block w-full py-4 text-center rounded-xl bg-primary text-black hover:bg-yellow-500 font-bold transition shadow-[0_0_15px_rgba(250,204,21,0.2)]">Select Standard</a>
+                </div>
+
+                <!-- Premium Card -->
+                <div class="glass p-8 rounded-3xl border border-gray-800 reveal pricing-card" style="transition-delay: 200ms;">
+                    <h3 class="text-2xl font-bold mb-2">Premium</h3>
+                    <p class="text-gray-400 text-sm mb-6">The ultimate buyer's edge.</p>
+                    <div class="text-4xl font-extrabold mb-8">₹2,999</div>
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-center gap-3 text-gray-300">
+                            <i data-lucide="check" class="w-5 h-5 text-primary shrink-0"></i>
+                            Everything in Standard
+                        </li>
+                        <li class="flex items-center gap-3 text-gray-300">
+                            <i data-lucide="check" class="w-5 h-5 text-primary shrink-0"></i>
+                            Advanced OBD Diagnostics
+                        </li>
+                        <li class="flex items-center gap-3 text-gray-300">
+                            <i data-lucide="check" class="w-5 h-5 text-primary shrink-0"></i>
+                            Repair Cost Estimation
+                        </li>
+                        <li class="flex items-center gap-3 text-gray-300">
+                            <i data-lucide="check" class="w-5 h-5 text-primary shrink-0"></i>
+                            AI Price Suggestion
+                        </li>
+                        <li class="flex items-center gap-3 text-gray-300">
+                            <i data-lucide="check" class="w-5 h-5 text-primary shrink-0"></i>
+                            Final Mechanic Verdict
+                        </li>
+                    </ul>
+                    <a href="#booking" class="block w-full py-4 text-center rounded-xl bg-gray-800 hover:bg-gray-700 text-white font-semibold transition">Select Premium</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Grid -->
+    <section class="py-24 border-t border-gray-900 bg-[#0a0a0a]">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col lg:flex-row gap-16 items-center">
+                <div class="lg:w-1/2 reveal">
+                    <h2 class="text-3xl md:text-5xl font-bold mb-6 text-gradient">Comprehensive 150-Point Check</h2>
+                    <p class="text-gray-400 mb-8 text-lg">We leave no stone unturned. Our experts thoroughly examine every inch of the car to ensure you know exactly what you're buying.</p>
+                    
+                    <div class="grid grid-cols-2 gap-x-8 gap-y-6">
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-lg bg-gray-800 flex flex-shrink-0 items-center justify-center text-primary">
+                                <i data-lucide="gauge" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-white mb-1">Engine Check</h4>
+                                <p class="text-xs text-gray-500">Noise, leaks, and compression</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-lg bg-gray-800 flex flex-shrink-0 items-center justify-center text-primary">
+                                <i data-lucide="disc" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-white mb-1">Tyre & Brake</h4>
+                                <p class="text-xs text-gray-500">Wear analysis & safety</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-lg bg-gray-800 flex flex-shrink-0 items-center justify-center text-primary">
+                                <i data-lucide="paintbrush" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-white mb-1">Accident Detection</h4>
+                                <p class="text-xs text-gray-500">Paint thickness meter</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-lg bg-gray-800 flex flex-shrink-0 items-center justify-center text-primary">
+                                <i data-lucide="cpu" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-white mb-1">OBD Scan</h4>
+                                <p class="text-xs text-gray-500">Electronic fault codes</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-lg bg-gray-800 flex flex-shrink-0 items-center justify-center text-primary">
+                                <i data-lucide="calculator" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-white mb-1">Price Eval</h4>
+                                <p class="text-xs text-gray-500">Fair market value</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sample Report Card -->
+                <div class="lg:w-1/2 w-full reveal" style="transition-delay: 200ms;">
+                    <div class="glass border border-gray-700 rounded-3xl p-8 relative overflow-hidden bg-gradient-to-b from-gray-900 to-black shadow-2xl">
+                        <!-- Header -->
+                        <div class="flex justify-between items-center mb-8 border-b border-gray-800 pb-6">
+                            <div>
+                                <h3 class="text-2xl font-bold">Hyundai Creta 1.6 SX</h3>
+                                <p class="text-gray-400">2018 • 45,000 km • Petrol</p>
+                            </div>
+                            <div class="text-right">
+                                <div class="text-sm text-gray-400 mb-1">Overall Score</div>
+                                <div class="inline-flex items-center justify-center w-16 h-16 rounded-full border-4 border-yellow-500 text-yellow-500 font-bold text-xl">
+                                    6.5
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Issues list -->
+                        <div class="mb-8">
+                            <h4 class="text-sm uppercase tracking-wider text-gray-500 font-semibold mb-4">Detected Issues (3)</h4>
+                            <div class="space-y-3">
+                                <div class="flex items-center justify-between p-3 rounded-xl bg-red-500/10 border border-red-500/20">
+                                    <div class="flex items-center gap-3">
+                                        <i data-lucide="alert-triangle" class="w-4 h-4 text-red-500"></i>
+                                        <span class="text-sm font-medium text-red-200">Minor oil seep from timing cover</span>
+                                    </div>
+                                    <span class="text-xs text-gray-400">Est. ₹3,500</span>
+                                </div>
+                                <div class="flex items-center justify-between p-3 rounded-xl bg-orange-500/10 border border-orange-500/20">
+                                    <div class="flex items-center gap-3">
+                                        <i data-lucide="disc" class="w-4 h-4 text-orange-500"></i>
+                                        <span class="text-sm font-medium text-orange-200">Front brake pads worn (80%)</span>
+                                    </div>
+                                    <span class="text-xs text-gray-400">Est. ₹2,800</span>
+                                </div>
+                                <div class="flex items-center justify-between p-3 rounded-xl bg-yellow-500/10 border border-yellow-500/20">
+                                    <div class="flex items-center gap-3">
+                                        <i data-lucide="car" class="w-4 h-4 text-yellow-500"></i>
+                                        <span class="text-sm font-medium text-yellow-200">Left fender repainted (Non-accidental)</span>
+                                    </div>
+                                    <span class="text-xs text-gray-400">-</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Price suggestion -->
+                        <div class="bg-gray-800/50 rounded-2xl p-6 border border-gray-700 flex items-center justify-between">
+                            <div>
+                                <div class="text-sm text-gray-400 mb-1">Suggested Buy Price</div>
+                                <div class="text-2xl font-bold text-green-400">₹7,45,000</div>
+                                <div class="text-xs text-gray-500 mt-1">Seller asking: ₹8,10,000</div>
+                            </div>
+                            <div class="text-right">
+                                <span class="bg-green-500/20 text-green-400 text-xs px-3 py-1 rounded-full font-medium border border-green-500/30">Good Deal</span>
+                            </div>
+                        </div>
+
+                        <!-- Decoration -->
+                        <div class="absolute -right-10 -bottom-10 opacity-5 pointer-events-none">
+                            <i data-lucide="shield-check" class="w-64 h-64 text-white"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-24 border-t border-gray-900 bg-black">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-3xl md:text-5xl font-bold mb-4 text-gradient">Don't Just Take Our Word For It</h2>
+                <p class="text-gray-400 max-w-2xl mx-auto text-lg">Real stories from buyers who dodged expensive mistakes.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Review 1 -->
+                <div class="glass p-8 rounded-2xl reveal">
+                    <div class="flex text-primary mb-4">
+                        <i data-lucide="star" class="w-5 h-5 fill-primary"></i>
+                        <i data-lucide="star" class="w-5 h-5 fill-primary"></i>
+                        <i data-lucide="star" class="w-5 h-5 fill-primary"></i>
+                        <i data-lucide="star" class="w-5 h-5 fill-primary"></i>
+                        <i data-lucide="star" class="w-5 h-5 fill-primary"></i>
+                    </div>
+                    <h4 class="text-lg font-bold text-white mb-2">Saved me ₹50,000!</h4>
+                    <p class="text-gray-400 text-sm mb-6 flex-grow italic">"The seller claimed the Polo was in pristine condition. Autonest's mechanic hooked up his scanner and found an impending DSG gearbox failure. Walked away instantly."</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center font-bold text-gray-300">R</div>
+                        <div>
+                            <div class="text-sm font-semibold text-white">Rahul K.</div>
+                            <div class="text-xs text-gray-500">Mumbai</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 2 -->
+                <div class="glass p-8 rounded-2xl reveal" style="transition-delay: 150ms;">
+                    <div class="flex text-primary mb-4">
+                        <i data-lucide="star" class="w-5 h-5 fill-primary"></i>
+                        <i data-lucide="star" class="w-5 h-5 fill-primary"></i>
+                        <i data-lucide="star" class="w-5 h-5 fill-primary"></i>
+                        <i data-lucide="star" class="w-5 h-5 fill-primary"></i>
+                        <i data-lucide="star" class="w-5 h-5 fill-primary"></i>
+                    </div>
+                    <h4 class="text-lg font-bold text-white mb-2">Very professional</h4>
+                    <p class="text-gray-400 text-sm mb-6 flex-grow italic">"Extremely thorough inspection. The detailed PDF report gave me the leverage to negotiate ₹30,000 off the asking price. Worth every penny of the fee."</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center font-bold text-gray-300">P</div>
+                        <div>
+                            <div class="text-sm font-semibold text-white">Priya M.</div>
+                            <div class="text-xs text-gray-500">Delhi</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 3 -->
+                <div class="glass p-8 rounded-2xl reveal" style="transition-delay: 300ms;">
+                    <div class="flex text-primary mb-4">
+                        <i data-lucide="star" class="w-5 h-5 fill-primary"></i>
+                        <i data-lucide="star" class="w-5 h-5 fill-primary"></i>
+                        <i data-lucide="star" class="w-5 h-5 fill-primary"></i>
+                        <i data-lucide="star" class="w-5 h-5 fill-primary"></i>
+                        <i data-lucide="star" class="w-5 h-5 fill-primary"></i>
+                    </div>
+                    <h4 class="text-lg font-bold text-white mb-2">Avoided a bad deal</h4>
+                    <p class="text-gray-400 text-sm mb-6 flex-grow italic">"Loved a Swift I found online. The Autonest inspector used a paint thickness tool and proved the entire front quarter was rebuilt after a crash. Highly recommend."</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center font-bold text-gray-300">A</div>
+                        <div>
+                            <div class="text-sm font-semibold text-white">Amit S.</div>
+                            <div class="text-xs text-gray-500">Bangalore</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Section -->
+    <section class="py-24 border-t border-gray-900 bg-[#0a0a0a] relative overflow-hidden" id="booking">
+        <!-- Glow effect -->
+        <div class="absolute bottom-0 left-0 w-full h-[300px] bg-primary opacity-[0.03] blur-[100px] pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="bg-gray-900 rounded-[2.5rem] p-8 md:p-16 border border-gray-800 shadow-2xl reveal">
+                <div class="grid lg:grid-cols-2 gap-16">
+                    
+                    <!-- Left: CTA Banner -->
+                    <div class="flex flex-col justify-center">
+                        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-sm font-medium mb-6 w-max border border-primary/20">
+                            Secure Your Investment
+                        </div>
+                        <h2 class="text-4xl md:text-5xl font-extrabold text-white mb-6 leading-tight">Book your inspection before you buy.</h2>
+                        <p class="text-gray-400 text-lg mb-8">Thousands of buyers have saved money and avoided headaches by having our mechanics check the car first. Don't take a risk.</p>
+                        <div class="space-y-4">
+                            <div class="flex items-center gap-3">
+                                <i data-lucide="check-circle-2" class="w-5 h-5 text-primary"></i>
+                                <span class="text-gray-300">Same-day inspection available</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <i data-lucide="check-circle-2" class="w-5 h-5 text-primary"></i>
+                                <span class="text-gray-300">Unbiased, independent verdict</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <i data-lucide="check-circle-2" class="w-5 h-5 text-primary"></i>
+                                <span class="text-gray-300">100% genuine digital reports</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right: Form -->
+                    <div class="bg-black p-8 rounded-3xl border border-gray-800">
+                        <h3 class="text-2xl font-bold mb-6 text-white text-center">Schedule Inspection</h3>
+                        
+                        <form id="bookingForm" class="space-y-4" novalidate>
+                            <!-- Replace this value with your actual Web3Forms Access Key -->
+                            <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
+
+                            <div class="grid grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-xs text-gray-400 mb-1 ml-1 uppercase tracking-wider font-semibold">Full Name</label>
+                                    <input type="text" id="name" name="name" required placeholder="John Doe" class="w-full bg-gray-900 border border-gray-700 text-white rounded-xl px-4 py-3 placeholder-gray-600 focus:border-primary transition">
+                                    <p id="nameError" class="text-red-500 text-xs mt-1 hidden">Name is required</p>
+                                </div>
+                                <div>
+                                    <label class="block text-xs text-gray-400 mb-1 ml-1 uppercase tracking-wider font-semibold">Phone Number</label>
+                                    <input type="tel" id="phone" name="phone" required placeholder="+91 98765 43210" class="w-full bg-gray-900 border border-gray-700 text-white rounded-xl px-4 py-3 placeholder-gray-600 focus:border-primary transition">
+                                    <p id="phoneError" class="text-red-500 text-xs mt-1 hidden">Valid phone is required</p>
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                <div class="relative" id="brandDropdownContainer">
+                                    <label class="block text-xs text-gray-400 mb-1 ml-1 uppercase tracking-wider font-semibold">Make/Brand</label>
+                                    <input type="text" id="carBrand" name="car_brand" required autocomplete="off" placeholder="Search Brand..." class="w-full bg-gray-900 border border-gray-700 text-white rounded-xl px-4 py-3 focus:border-primary transition appearance-none z-10 relative">
+                                    <i data-lucide="search" class="w-4 h-4 absolute right-4 top-10 pointer-events-none text-gray-500 z-20"></i>
+                                    <div id="brandList" class="hidden absolute top-[105%] left-0 right-0 bg-gray-900 border border-gray-700 rounded-xl overflow-hidden z-50 max-h-48 overflow-y-auto shadow-2xl">
+                                        <!-- JS items -->
+                                    </div>
+                                    <p id="carBrandError" class="text-red-500 text-xs mt-1 hidden">Required</p>
+                                </div>
+                                <div class="relative">
+                                    <label class="block text-xs text-gray-400 mb-1 ml-1 uppercase tracking-wider font-semibold">Model</label>
+                                    <select id="carModel" name="car_model" required disabled class="w-full bg-gray-900 border border-gray-700 text-gray-500 rounded-xl px-4 py-3 focus:border-primary transition appearance-none disabled:opacity-50 disabled:cursor-not-allowed">
+                                        <option value="" disabled selected>Model</option>
+                                    </select>
+                                    <i data-lucide="chevron-down" class="w-4 h-4 absolute right-4 top-10 pointer-events-none text-gray-500"></i>
+                                    <p id="carModelError" class="text-red-500 text-xs mt-1 hidden">Required</p>
+                                </div>
+                                <div class="relative">
+                                    <label class="block text-xs text-gray-400 mb-1 ml-1 uppercase tracking-wider font-semibold">Year</label>
+                                    <select id="carYear" name="car_year" required class="w-full bg-gray-900 border border-gray-700 text-white rounded-xl px-4 py-3 focus:border-primary transition appearance-none">
+                                        <option value="" disabled selected>Year</option>
+                                    </select>
+                                    <i data-lucide="chevron-down" class="w-4 h-4 absolute right-4 top-10 pointer-events-none text-gray-500"></i>
+                                    <p id="carYearError" class="text-red-500 text-xs mt-1 hidden">Required</p>
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block text-xs text-gray-400 mb-1 ml-1 uppercase tracking-wider font-semibold">Location (City/Area)</label>
+                                <input type="text" id="location" name="location" required placeholder="Where is the car located?" class="w-full bg-gray-900 border border-gray-700 text-white rounded-xl px-4 py-3 placeholder-gray-600 focus:border-primary transition">
+                                <p id="locationError" class="text-red-500 text-xs mt-1 hidden">Location is required</p>
+                            </div>
+
+                            <div>
+                                <label class="block text-xs text-gray-400 mb-1 ml-1 uppercase tracking-wider font-semibold">Preferred Date</label>
+                                <input type="date" id="date" name="preferred_date" required class="w-full bg-gray-900 border border-gray-700 text-white rounded-xl px-4 py-3 placeholder-gray-600 focus:border-primary transition [color-scheme:dark]">
+                                <p id="dateError" class="text-red-500 text-xs mt-1 hidden">Please select a date</p>
+                            </div>
+
+                            <button type="submit" class="w-full bg-primary text-black font-bold text-lg py-4 rounded-xl hover:bg-yellow-500 transition mt-4 shadow-[0_0_15px_rgba(250,204,21,0.2)]">
+                                Submit Request
+                            </button>
+                            <p class="text-center text-xs text-gray-500 mt-3">No payment required until the inspector arrives.</p>
+
+                            <!-- Success Message -->
+                            <div id="successMsg" class="hidden mt-4 p-4 rounded-xl bg-green-500/10 border border-green-500/20 text-green-400 text-center text-sm font-medium">
+                                Thank you! Our team will contact you shortly to confirm the appointment.
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black pt-20 pb-10 border-t border-gray-900" id="contact">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+                <div class="col-span-1 md:col-span-2">
+                    <a href="#" class="text-2xl font-bold tracking-tighter text-white flex items-center gap-2 mb-4">
+                        <i data-lucide="shield-check" class="text-primary w-8 h-8"></i>
+                        Autonest
+                    </a>
+                    <p class="text-gray-500 max-w-sm mb-6">India's most trusted independent used car inspection service. Don't buy a used car blind.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" title="Back to Top" class="w-10 h-10 rounded-full glass flex items-center justify-center text-gray-400 hover:text-primary hover:bg-gray-800 transition shadow-sm hover:shadow-primary/20">
+                            <i data-lucide="arrow-up" class="w-5 h-5"></i>
+                        </a>
+                        <a href="#services" title="Our Services" class="w-10 h-10 rounded-full glass flex items-center justify-center text-gray-400 hover:text-primary hover:bg-gray-800 transition shadow-sm hover:shadow-primary/20">
+                            <i data-lucide="briefcase" class="w-5 h-5"></i>
+                        </a>
+                        <a href="#contact" title="Contact Us" class="w-10 h-10 rounded-full glass flex items-center justify-center text-gray-400 hover:text-primary hover:bg-gray-800 transition shadow-sm hover:shadow-primary/20">
+                            <i data-lucide="phone" class="w-5 h-5"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-white font-semibold mb-6">Quick Links</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#services" class="text-gray-500 hover:text-primary transition text-sm">Pricing & Services</a></li>
+                        <li><a href="#how-it-works" class="text-gray-500 hover:text-primary transition text-sm">How it Works</a></li>
+                        <li><a href="#" class="text-gray-500 hover:text-primary transition text-sm">Sample Report</a></li>
+                        <li><a href="#problems" class="text-gray-500 hover:text-primary transition text-sm">Why Inspect?</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-semibold mb-6">Contact Us</h4>
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="map-pin" class="w-5 h-5 text-primary shrink-0"></i>
+                            <span class="text-gray-500 text-sm">Hyderabad, Telangana</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i data-lucide="phone" class="w-5 h-5 text-primary shrink-0"></i>
+                            <span class="text-gray-500 text-sm">+91 81793 78163</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i data-lucide="mail" class="w-5 h-5 text-primary shrink-0"></i>
+                            <span class="text-gray-500 text-sm">autonest007@gmail.com</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="pt-8 border-t border-gray-900 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-gray-600 text-sm">© 2026 Autonest Technologies. All rights reserved.</p>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-600 hover:text-white text-sm transition">Privacy Policy</a>
+                    <a href="#" class="text-gray-600 hover:text-white text-sm transition">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/918179378163" target="_blank" class="fixed bottom-6 right-6 w-14 h-14 bg-green-500 rounded-full flex items-center justify-center text-white shadow-lg shadow-green-500/30 hover:scale-110 transition z-50 animate-bounce">
+        <i data-lucide="message-circle" class="w-7 h-7"></i>
+    </a>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+</body>
+</html>
