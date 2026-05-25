@@ -10,10 +10,5 @@
       "src": "/(.*)",
       "dest": "/$1"
     }
-  ],
-  "functions": {
-    "api/webhook.js": {
-      "runtime": "nodejs24.x"
-    }
-  }
+  ]
 }
